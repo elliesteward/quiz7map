@@ -9,9 +9,11 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+ 
+   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
    crossorigin=""></script>
+
   <style type="text/css">
     body {
        margin: 0;
@@ -26,15 +28,23 @@
 <body>
   <div id="map"></div>
   <script>
-      var map = L.map('map').setView([35.90773776103798, -79.06350472107295], 14.0);
+
+
+      var customPopup1 = "<b>Napoli</b> <br>The Best Pizza and Gelato combo.</br><br/><img src='https://rh-vendoradmin.s3.amazonaws.com/trucks/original/12744/562a8a2b-0a00-4090-ac43-56c246204482.jpg'width='100px'/>";
+      var customPopup2 = "<b>Mediterranean Deli</b> <br>The Baklava is to die for.</br><br/><img src='https://images.squarespace-cdn.com/content/v1/5a8b1d172aeba5f15872ede3/1559505388430-M74L8BFNW1Z4NR5YJIBL/ke17ZwdGBToddI8pDm48kDEDYh4Y0JGhR6hzuwcJ44gUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcz6bs2FkMoqlrQIzq4g5ogDqXr_T7rMikH_TfPkEE4wwzGwe9KEhUq6A0DxOZf-75/NY7A8977.jpg'width='100px'/>";
+      var customPopup3 = "<b>Gray Squirrel Coffee</b><br>The Maple Latte is so rich<br> and creamy. I think I drink it</br> in 2 Minutes everytime.</br><br/><img src='https://media-cdn.tripadvisor.com/media/photo-p/12/c9/7a/87/photo8jpg.jpg'width='100px'/>";
+      var customPopup4 = "<b>Cosmic Cantina</b><br>Chips, Guac, Queso.</br><br/><img src='https://snworksceo.imgix.net/dth/9f98bdc7-a7ec-4108-a6e4-8bb577158004.sized-1000x1000.jpg'width='100px'/>";
       
-      var daMarker = L.marker([35.910519, -79.071370]).bindPopup('YUM best pizza');
+      
+      var map = L.map('map').setView([35.90773776103798, -79.06350472107295], 14.0);
 
-      var daMarker1 = L.marker([35.911295, -79.061011]).bindPopup('the Baklava is to die for');
+      var daMarker = L.marker([35.910519, -79.071370]).bindPopup(customPopup1);
+    
+      var daMarker1 = L.marker([35.911295, -79.061011]).bindPopup(customPopup2);
 
-      var daMarker2 = L.marker([35.910652, -79.068154]).bindPopup('Maple Latte');
+      var daMarker2 = L.marker([35.910652, -79.068154]).bindPopup(customPopup3);
 
-      var daMarker3 = L.marker([35.913229, -79.054618]).bindPopup('Chips, Guac, Queso');
+      var daMarker3 = L.marker([35.913229, -79.054618]).bindPopup(customPopup4);
         
       var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	    maxZoom: 19,
@@ -61,6 +71,7 @@
       }
 
       L.control.layers(daTiles,daVectors).addTo(map);
+
   </script>
 </body>
 </html>
