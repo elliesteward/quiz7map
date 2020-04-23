@@ -28,6 +28,9 @@
   <script>
       var map = L.map('map').setView([35.90773776103798, -79.06350472107295], 14.0);
       
+      var daMarker = L.marker([35.908041, -79.063142]);
+
+      var daMarker1 = L.marker([35.909495, -79.057526]);
         
       var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	    maxZoom: 19,
@@ -46,7 +49,12 @@
         "UNC Photo":daPhoto
       }
 
-      L.control.layers(daTiles).addTo(map);
+      var daVectors = {
+        "The most beautiful Magnolia tree":daMarker,
+        "Bike Path to School":daMarker1
+      }
+
+      L.control.layers(daTiles,daVectors).addTo(map);
   </script>
 </body>
 </html>
