@@ -31,6 +31,10 @@
       var daMarker = L.marker([35.908041, -79.063142]);
 
       var daMarker1 = L.marker([35.909495, -79.057526]);
+
+      var daMarker2 = L.marker([35.910294, -79.050289]);
+
+      var daMarker3 = L.marker([35.915575, -79.086997])
         
       var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	    maxZoom: 19,
@@ -51,7 +55,9 @@
 
       var daVectors = {
         "The most beautiful Magnolia tree":daMarker,
-        "Bike Path to School":daMarker1
+        "Bike Path to School":daMarker1,
+        "Morning coffee on the quad":daMarker2,
+        "Johnny's Gone Fishing":daMarker3
       }
 
       L.control.layers(daTiles,daVectors).addTo(map);
