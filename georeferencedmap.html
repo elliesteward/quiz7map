@@ -34,9 +34,9 @@
       var customPopup2 = "<b>Mediterranean Deli</b> <br>The Baklava is to die for.</br><br/><img src='https://images.squarespace-cdn.com/content/v1/5a8b1d172aeba5f15872ede3/1559505388430-M74L8BFNW1Z4NR5YJIBL/ke17ZwdGBToddI8pDm48kDEDYh4Y0JGhR6hzuwcJ44gUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcz6bs2FkMoqlrQIzq4g5ogDqXr_T7rMikH_TfPkEE4wwzGwe9KEhUq6A0DxOZf-75/NY7A8977.jpg'width='100px'/>";
       var customPopup3 = "<b>Gray Squirrel Coffee</b><br>The Maple Latte is so rich<br> and creamy. I think I drink it</br> in 2 Minutes everytime.</br><br/><img src='https://media-cdn.tripadvisor.com/media/photo-p/12/c9/7a/87/photo8jpg.jpg'width='100px'/>";
       var customPopup4 = "<b>Cosmic Cantina</b><br>Chips, Guac, Queso.</br><br/><img src='https://snworksceo.imgix.net/dth/9f98bdc7-a7ec-4108-a6e4-8bb577158004.sized-1000x1000.jpg'width='100px'/>";
+      var customPopup5 = "Bike Route to School";
       
-      
-      var map = L.map('map').setView([35.90773776103798, -79.06350472107295], 14.0);
+      var map = L.map('map').setView([35.90773776103798, -79.06350472107295], 15.0);
 
       var daMarker = L.marker([35.910519, -79.071370]).bindPopup(customPopup1);
     
@@ -45,6 +45,23 @@
       var daMarker2 = L.marker([35.910652, -79.068154]).bindPopup(customPopup3);
 
       var daMarker3 = L.marker([35.913229, -79.054618]).bindPopup(customPopup4);
+
+      var polylinePoints = [
+        [35.909930, -79.069892],
+        [35.909934, -79.069560],
+        [35.909754, -79.069227],
+        [35.909736, -79.069007],
+        [35.909184, -79.067468],
+        [35.908737, -79.066320],
+        [35.908537, -79.066261],
+        [35.907607, -79.064646],
+        [35.907329, -79.064050],
+        [35.907103, -79.063841],
+        [35.911941, -79.051133]
+        ];            
+      
+        var polyline = L.polyline(polylinePoints)
+        .bindPopup(customPopup5); 
         
       var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	    maxZoom: 19,
@@ -67,7 +84,8 @@
         "Napoli":daMarker,
         "Mediterranean Deli":daMarker1,
         "Gray Squirrel Coffee":daMarker2,
-        "Cosmic Cantina":daMarker3
+        "Cosmic Cantina":daMarker3,
+        "Bike Path to school":polyline
       }
 
       L.control.layers(daTiles,daVectors).addTo(map);
